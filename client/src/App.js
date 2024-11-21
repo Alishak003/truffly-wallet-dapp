@@ -38,7 +38,7 @@ function App() {
           value={selectedChain}
           options={[
             {
-              label: "localBlockChain",
+              label: "Ganache BlockChain",
               value: "0x1",
             },
           ]}
