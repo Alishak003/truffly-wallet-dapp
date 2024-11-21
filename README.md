@@ -1,9 +1,13 @@
 MY CRYPTO WALLET (TRUFFLY)
 
-A decentralized application (dApp) to mint, manage, and display NFTs on a local blockchain using Truffle Suite, Ganache, and a React front-end.
+A decentralized application (dApp) extension to mint, manage, and display NFTs on a local blockchain using Truffle Suite, Ganache, and a React front-end.
 
-##OVERVIEW
-This project demonstraits Transferring/recieving Ether(ETH) , minting NFTs on a local blockchain simulated using Ganache. 
+##ABOUT
+This project demonstraits Transferring/recieving Ether(ETH) , minting NFTs on a local blockchain simulated using Ganache. It uses ganache to set-up a localblochain with simulated ethers. This allows a user to interact with the Dapp and check it's features wihtout having any real coins in the mainnet.
+about some of the files and their usage :
+ -EtherTransfer.sol : this is a smart contract that has a payable function which allows to transfer. payable allows a function to send/recieve tokens
+ -MintNFT : it allows the minting of Nfts . uses _safeMint ERC721.sol contract to mint token.
+ -backend/EtherTransferContract.js & mintNFT.js : connects with the contract using contractABI and contract address . An ABI is a Application binary interface like an API 
 
 ##TECHNOLOGIES USED
 
