@@ -6,7 +6,6 @@ import { mintNFT } from "../backend/mintNft";
 import { Table, Divider, Tooltip, List, Tabs } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import NFTGallery from "./MyNfts";
 
 // Deployed contract's address in Ganache
 
