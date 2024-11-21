@@ -186,19 +186,6 @@ const contractABI = [
     type: "event",
   },
   {
-    inputs: [],
-    name: "admin",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [
       {
         internalType: "address",
@@ -286,19 +273,6 @@ const contractABI = [
         internalType: "string",
         name: "",
         type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "nextTokenId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -427,6 +401,25 @@ const contractABI = [
   {
     inputs: [
       {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "tokenURI",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "address",
         name: "from",
         type: "address",
@@ -454,34 +447,10 @@ const contractABI = [
         name: "to",
         type: "address",
       },
-      {
-        internalType: "string",
-        name: "nftURi",
-        type: "string",
-      },
     ],
     name: "safeMint",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
-    name: "tokenURI",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
     type: "function",
   },
 ];
@@ -493,46 +462,40 @@ const web3 = new Web3(provider);
 
 const nftContract = new web3.eth.Contract(contractABI, contractAddress);
 
-export const mintNFT = async (
-  tokenURI,
-  account,
-  mintedNfts,
-  setNftMessage,
-  setMintedNfts
-) => {
+export const mintNFT = async (account, tokenURI, setMessage) => {
   if (nftContract && account) {
     try {
-      setNftMessage("Minting NFT...");
+      setMessage("Minting NFT...");
       const result = await nftContract.methods
-        .safeMint(account, tokenURI)
+        .safeMint(account)
         .send({ from: account });
-      let tokenId = result.events.Transfer.returnValues.tokenId;
-      setNftMessage(`NFT Minted! Token ID: ${tokenId}`);
-      setMintedNfts([...mintedNfts, { uri: tokenURI, id: tokenId }]);
+      setMessage(
+        `NFT Minted! Token ID: ${result.events.Transfer.returnValues.tokenId}`
+      );
     } catch (err) {
-      setNftMessage("Error minting NFT.");
+      setMessage("Error minting NFT.");
       console.error(err);
     }
   } else {
-    setNftMessage("Connect wallet first.");
+    setMessage("Connect wallet first.");
   }
 };
 
-export const fetchNfts = async (account) => {
-  try {
-    const balance = await nftContract.methods.balanceOf(account).call();
-    const userNFTs = [];
-    for (let i = 0; i < balance; i++) {
-      const tokenId = await nftContract.methods
-        .tokenOfOwnerByIndex(account, i)
-        .call();
-      const uri = await nftContract.methods.tokenURI(tokenId).call();
-      userNFTs.push({ id: tokenId, uri });
-    }
-    console.log(userNFTs);
-    // setNfts(userNFTs);
-  } catch (err) {
-    // setNftMessage("Error fetching NFT.");
-    console.error(err);
-  }
-};
+// export const fetchNfts = async (account) => {
+//   try {
+//     const balance = await nftContract.methods.balanceOf(account).call();
+//     const userNFTs = [];
+//     for (let i = 0; i < balance; i++) {
+//       const tokenId = await nftContract.methods
+//         .tokenOfOwnerByIndex(account, i)
+//         .call();
+//       const uri = await nftContract.methods.tokenURI(tokenId).call();
+//       userNFTs.push({ id: tokenId, uri });
+//     }
+//     console.log(userNFTs);
+//     // setNfts(userNFTs);
+//   } catch (err) {
+//     // setNftMessage("Error fetching NFT.");
+//     console.error(err);
+//   }
+// };

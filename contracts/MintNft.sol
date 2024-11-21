@@ -1,40 +1,23 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol"; // Optional: Ownable for onlyOwner functions
+import "@openzeppelin/contracts/access/Ownable.sol"; // For onlyOwner modifier
 
-contract MyNFT is ERC721Enumerable {
-    uint public nextTokenId;
-    address public admin;
-    mapping(uint256 => string) private _tokenURIs;
+contract MyNFT is ERC721 {
+    uint256 private _tokenIdCounter; // Declare a variable to manually increment token IDs
 
-    constructor() ERC721("MyNFT", "MNFT") {
-        admin = msg.sender;
+    constructor() ERC721("MyNFT", "MNFT") {}
+
+    // Function to mint a new token, incrementing the token ID manually
+    function safeMint(address to) public {
+        uint256 tokenId = _tokenIdCounter; // Get the current token ID
+        _safeMint(to, tokenId);
+        _tokenIdCounter++; // Increment the token ID manually
     }
 
+    // Base URI for metadata
     function _baseURI() internal view virtual override returns (string memory) {
         return "https://api.example.com/metadata/";
-    }
-
-    function safeMint(address to, string memory nftURi) public {
-        uint256 newTokenId = nextTokenId;
-        _safeMint(to, newTokenId);
-        _setTokenURI(newTokenId, nftURi);
-        nextTokenId++;
-    }
-
-    function tokenURI(
-        uint256 tokenId
-    ) public view override returns (string memory) {
-        return _tokenURIs[tokenId];
-    }
-
-    function _setTokenURI(
-        uint256 tokenId,
-        string memory _tokenURI
-    ) internal virtual {
-        _tokenURIs[tokenId] = _tokenURI;
     }
 }

@@ -22,14 +22,13 @@ const App = ({
   const [amount, setAmount] = useState("");
   const [message, setMessage] = useState("");
   const [nftUri, setNftUri] = useState("");
-  const [mintedNfts, setMintedNfts] = useState([]);
   const [nftMessage, setNftMessage] = useState("");
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(account);
   };
   const handleMintNft = async () => {
-    await mintNFT(nftUri, account, mintedNfts, setNftMessage, setMintedNfts);
+    await mintNFT(account, nftUri, setNftMessage);
   };
   const handleSendEther = async () => {
     await transferEther(

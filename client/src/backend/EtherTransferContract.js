@@ -97,7 +97,7 @@ export const transferEther = async (
       setBalance(balanceInEther);
       let transactions = JSON.parse(localStorage.getItem("transactions"));
       transactions.push(tx);
-      localStorage.setItem("transactions", JSON.stringify(transactions));
+      // localStorage.setItem("transactions", JSON.stringify(transactions));
       setMessage(`Transaction successful!`);
     } else {
       setMessage(`Transaction failed!`);
@@ -142,9 +142,8 @@ export const fetchTransactionsFromGanache = async (account) => {
   console.log(account);
   const latestBlock = await web3.eth.getBlockNumber();
   const transactions = [];
-  // Loop through recent blocks (adjust block range if needed)
   for (let i = 0; i <= latestBlock; i++) {
-    const block = await web3.eth.getBlock(i, true); // Include transactions
+    const block = await web3.eth.getBlock(i, true);
     if (block && block.transactions) {
       block.transactions.forEach((tx) => {
         if (tx.to != null) {
@@ -164,11 +163,6 @@ export const fetchTransactionsFromGanache = async (account) => {
     amount: web3.utils.fromWei(transaction.value, "ether"),
     transactionHash: transaction.hash,
   }));
-  console.log("transactions");
-  console.log(transactions);
-  console.log("transactionHistory");
-
-  console.log(transactionHistory);
   localStorage.setItem("transactions", JSON.stringify(transactionHistory));
 
   return transactionHistory;
