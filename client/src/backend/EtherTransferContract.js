@@ -139,7 +139,6 @@ export const transferEther = async (
 // };
 
 export const fetchTransactionsFromGanache = async (account) => {
-  console.log(account);
   const latestBlock = await web3.eth.getBlockNumber();
   const transactions = [];
   for (let i = 0; i <= latestBlock; i++) {
