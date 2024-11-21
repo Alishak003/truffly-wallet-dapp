@@ -54,7 +54,7 @@ yay you set up your loacl blockchain . Truffle provides you with 10 test account
 4.connect local blockchain to metamask 
    open metamask extention > click on the networks dopdown in top left corner > add a network.
    scroll down to add a network manually
-   enter these -> Netwrok-name : ganache block chain ; rpc URL : http://127.0.0.1:7545 ; chain ID : 1337 ; currency Symbol : ETH
+   enter these -> Network-name : ganache block chain ; rpc URL : http://127.0.0.1:7545 ; chain ID : 1337 ; currency Symbol : ETH
    click save
 
 yay done!
