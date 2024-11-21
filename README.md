@@ -17,15 +17,16 @@ Ganache is a part of truffle suit that allows user to simulate a local blockchai
 Front-end to interact with the Smart contracts.
 
 4.OpenZeppelin: 
-Provides ERC-721 Contract that allows the minting of NFTs.Open source library with reliable and teted contracts.
+Provides ERC-721 Contract that allows the minting of NFTs.Open source library with reliable and tested contracts.
 
 5.MetaMask:
 Browser wallet for interacting with the dApp.
 
-##Features
-transfer eth : you can transfer eth between any accounts in your ganache.simply copy paste the reciepent account's address ,enter the eth and hit send. confirmt the transaction in the metamask pop up that shows up.
-mint nft : copy and paste the uri of any image on the internet and hit mint
+##FEATURES
 
+1.transfer eth : you can transfer eth between any accounts in your ganache.simply copy paste the reciepent account's address ,enter the eth and hit send. confirmt the transaction in the metamask pop up that shows up.
+2.mint nft : copy and paste the uri of any image on the internet and hit mint
+3.transaction histpry : on the initial login the histories section shows your previous transactions [Currently the section doesnt re-render on a new transaction but it will be fixed soon :,) ]
 
 ##INSTALLATION AND SETUP
 1.Prerequisites
