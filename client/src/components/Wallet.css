@@ -1,0 +1,106 @@
+/* wallet.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.account {
+  margin-bottom: 20px;
+}
+
+.accountInfo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.walletAddress {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.transfer-content {
+  padding: 10px;
+  background: #fff;
+}
+
+.transferForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.transferButton {
+  padding: 10px;
+  font-size: 1rem;
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* minst section */
+
+.mintSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.copyButton {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.mintButton {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.confirmationMessage {
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.icon {
+  margin-right: 5px;
+}
+
+.nftList {
+  margin-top: "20px";
+  text-align: "center";
+}
+.nftItem {
+  background-color: "#f1f1f1";
+  padding: "5px";
+  border-radius: "5px";
+  margin-top: "5px";
+}
