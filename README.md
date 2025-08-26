@@ -32,46 +32,7 @@ Browser wallet for interacting with the dApp.
 2.mint nft : copy and paste the uri of any image on the internet and hit mint
 3.transaction histpry : on the initial login the histories section shows your previous transactions [Currently the section doesnt re-render on a new transaction but it will be fixed soon :,) ]
 
-##INSTALLATION AND SETUP
-1.Prerequisites
-    Node.js
-    NPM or Yarn
-    Truffle (npm install -g truffle)
-    Ganache (from Ganache UI or CLI)
-    MetaMask browser extension
 
-2. -run 'npm install' in main directory to install all dependencies
-   -in case you are unable to see any contracts in migrations folder run truffle unbox
-   -cd client
-   -npm install
-   -npm run start
-
-3. host local ganache blockchain
-   Open Ganache
-   create Workspace
-   type in any name in work-space name
-   in the truffle projects field add the truffle-config.js file located in the main directly
-   click ADD PROJECT button  
-   
-yay you set up your loacl blockchain . Truffle provides you with 10 test accounts
-
-4.connect local blockchain to metamask 
-   open metamask extention > click on the networks dopdown in top left corner > add a network.
-   scroll down to add a network manually
-   enter these -> Network-name : ganache block chain ; rpc URL : http://127.0.0.1:7545 ; chain ID : 1337 ; currency Symbol : ETH
-   click save
-
-yay done!
-
-5. connect ganache's account to metamask
-   in your ganache gui click the key symbol next to any of the accounts and copy the private key frm the popup
-   open metamask >click accounts on the top center> add account or hardware wallet> paste private key > import
-
-Yay import successful
-
-logout out on your dApp and click connect to metamask . it will automatically log in to the active account in your metamask
-
-now you can transfer eth , mint nfts 
 
 
    
